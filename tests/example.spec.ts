@@ -1,18 +1,27 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test.describe("Suite de tests", async () => {
+  test("Test input Iphone", async ({ page }) => {
+    await test.step("Visita la página", async () => {
+      await page.goto("https://opencart.abstracta.us/");
+    });
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+    await test.step("Realiza una búsqueda", async () => {
+      await page.getByPlaceholder("Search").fill("Iphone");
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+      await page.getByPlaceholder("Search").press("Enter");
+      await page.pause();
+    });
+  });
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  test("Test click to MacBook", async ({ page }) => {
+    await test.step("Visita la página", async () => {
+      await page.goto("https://opencart.abstracta.us/");
+    });
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+    await test.step("Click en producto", async () => {
+      await page.getByText("MacBook").click();
+      await page.pause();
+    });
+  });
 });
