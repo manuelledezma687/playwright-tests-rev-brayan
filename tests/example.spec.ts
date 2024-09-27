@@ -21,6 +21,9 @@ test.describe("Suite de tests", async () => {
 
     await test.step("Click en producto", async () => {
       await page.getByText("MacBook").click();
+      await page.screenshot({
+        path: "./captures/" + Date.now() + "screenshot.jpg",
+      });
       await page.pause();
     });
   });
