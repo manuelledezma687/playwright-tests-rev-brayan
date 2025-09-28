@@ -19,3 +19,5 @@ npm test
 
 - `tests/example.spec.ts` - Tests principales
 - `tests/pages/BasePage.ts` - Page Object Model
+
+- Revisado
